@@ -11,41 +11,41 @@ def main():
             break
     
 def play_game():
-    print("Thinkin of a number bw 1 and 20")
+    print("Thinking of a number between 1 and 20")
     secret = random.randint(1, 20)
-    limit = input("How many fuckin tries do you want to guess? (default is 5): ") or 5
+    limit = input("How many tries you want? (default is 5): ") or 5
     try:
         limit = int(limit)
     except ValueError:
-        print("This is fuckin invalid, are you high bitch? Whatever, idc, using default.")
+        print("You have entered an invalid value. Using default value (5).")
         limit = 5
     if limit <= 0:
-        print("I didn't ask you to enter your IQ, are you on coke? Whatever bitch, idc, using default.")
+        print("You have mistakenly entered your IQ. Using default value (5).")
         limit = 5
     
     for tries in range (1, limit + 1):
-        guess_str = input("Take a guess motherfucker: ").strip()
+        guess_str = input("Take a guess: ").strip()
         if not guess_str:
-            print("Enter a number, retard!")
+            print("Enter a number!")
             continue
         try:
             guess = int(guess_str)
         except ValueError:
-            print("Thats not a fuckin number try again bae.")
+            print("You have entered an invalid input. Try again!.")
             continue
         if guess <= 0:
-            print("Why the fuck are you entering your IQ?")
+            print("Are you high? I said the number is between 1-20. Try again!?")
             continue
 
         if guess < secret:
-            print("Your guess is LOW.")
+            print("Your guess is lower.")
         elif guess > secret:
-            print("Your guess is HIGH.")
+            print("Your guess is higher.")
         else:
-            print(f"Fuck you, you won! You guessed my number in {tries} fuckin tries.")
+            print(f"You have won! You guessed my number in {tries} tries.")
             break
     else:
-        print(f"You lost bitch, you used all your tries. The number was {secret}.")
+        print(f"You have lost. You used all your tries. The number was {secret}.")
 
 if __name__ == "__main__":
     main()
